@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">UTSproject</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="login">Login\n</string>
+    <string name="register">Register Here</string>
+    <string name="food_list_title">Food and Beverages</string>
+    <string name="food_name">Batagor</string>
+    <string name="description_of_the_food">Batagor Enak nyoss.</string>
+    <string name="cireng">Cireng</string>
+    <string name="cireng_des">Ini Cireng, cuman cireng.</string>
+    <string name="nasgor">Nasi Goreng Manisi</string>
+    <string name="nasgor_des">Nasi Goreng asli manis, dijamin enak.</string>
+    <string name="kopi">Kopi Ireng</string>
+    <string name="kopi_des">Kopi Ireng kapal api</string>
+    <string name="es_teh">Es Teh Lemon</string>
+    <string name="es_teh_des">Es Lemon yang menyegarkan</string>
+    <string name="cappuchino">Cappuchino</string>
+    <string name="cappuchino_des">Cappuchino bandung</string>
+</resources>

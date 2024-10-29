@@ -1,20 +1,40 @@
 package lat.pam.utsproject
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class ConfirmationActivity : AppCompatActivity() {
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_confirmation)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        val foodName = intent.getStringExtra("FOOD_NAME") ?: "Food Name not available"
+        val foodServings = intent.getStringExtra("FOOD_SERVINGS") ?: "Number of Servings not available"
+        val orderingName = intent.getStringExtra("ORDERING_NAME") ?: "Ordering Name not available"
+        val additionalNotes = intent.getStringExtra("ADDITIONAL_NOTES") ?: "Additional Notes not available"
+
+        val foodNameTextView: TextView = findViewById(R.id.foodNameText)
+        val foodServingsTextView: TextView = findViewById(R.id.foodServingsText)
+        val orderingNameTextView: TextView = findViewById(R.id.orderingNameText)
+        val additionalNotesTextView: TextView = findViewById(R.id.additionalNotesText)
+
+        foodNameTextView.text = "Food Name: $foodName"
+        foodServingsTextView.text = "Number of Servings: $foodServings"
+        orderingNameTextView.text = "Ordering Name: $orderingName"
+        additionalNotesTextView.text = "Additional Notes: $additionalNotes"
+
+        val backButton: Button = findViewById(R.id.backtoMenu)
+        backButton.setOnClickListener {
+            val intent = Intent(this, ListFoodActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            startActivity(intent)
+            finish()
         }
+
     }
 }
